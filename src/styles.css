@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Fira Code, 'Courier New', Courier, monospace;
+  background-color: black;
+  color: white;
+}
+
+input {
+  font: inherit;
+  width: 100%;
+  background: transparent;
+  border: 0.2em solid white;
+  padding: 0.5em;
+  color: inherit;
+}
+pre {
+  font: inherit;
+}
+pre div {
+  margin-bottom: 0.2em;
+}
