@@ -5,7 +5,10 @@ export default {
     '001': {
       help: 'help text for operation 1',
       ITEM: {
-        '001': ['log line for item 1'],
+        '001': {
+          logs: ['log line for item 1'],
+          endsOPS: true,
+        },
       },
     },
   },

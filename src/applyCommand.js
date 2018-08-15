@@ -9,6 +9,22 @@ const getHelp = ({ POS, OPS }) => {
   return [fallback];
 };
 
+const execute = ({ POS, OPS, ITEM }) => {
+  try {
+    const { logs, endsOPS } = data[POS].OPS[OPS].ITEM[ITEM] || {};
+    // todo: allow logs to be a function
+    const newLogs = Array.isArray(logs) ? logs : [];
+    return {
+      newOPS: endsOPS ? undefined : OPS,
+      newLogs,
+    };
+  } catch (e) {}
+  return {
+    newOPS: OPS,
+    newLogs: ['invalid item'],
+  };
+};
+
 export const defaultState = {
   command: '',
   POS: undefined,
@@ -38,6 +54,21 @@ export function applyCommand({ command, logs, POS, OPS, ITEM }) {
     return {
       ...defaultState,
       POS: number,
+    };
+  }
+  if (OPS && type === 'ITEM') {
+    const { newOPS, newLogs } = execute({ POS, OPS, ITEM: number });
+    return {
+      command: '',
+      logs: [...logs, ...newLogs],
+      OPS: newOPS,
+    };
+  }
+  if (!OPS && type === 'OPS') {
+    return {
+      ITEM: undefined,
+      OPS: number,
+      command: '',
     };
   }
 
