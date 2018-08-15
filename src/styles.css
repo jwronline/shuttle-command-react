@@ -6,6 +6,26 @@ body {
   font-family: Fira Code, 'Courier New', Courier, monospace;
   background-color: black;
   color: white;
+  margin: 0;
+  padding: 0.8em;
+}
+
+html,
+body,
+#root,
+main {
+  height: 100%;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main pre {
+  flex-grow: 1;
+  overflow: scroll;
 }
 
 input {
