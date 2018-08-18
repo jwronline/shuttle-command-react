@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import data from '../data';
+import { isoDate } from '../utils';
 
 const posToString = pos => (pos ? data[pos].name : 'NONE');
-
-const HOUR_IN_MS = 60 * 1000;
-
-const isoDate = date =>
-  new Date(date.getTime() - date.getTimezoneOffset() * HOUR_IN_MS)
-    .toISOString()
-    .replace(/\.\d{3}Z/, '')
-    .replace('T', ' ');
 
 export class Status extends Component {
   state = {
