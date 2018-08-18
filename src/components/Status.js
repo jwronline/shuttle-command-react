@@ -3,6 +3,12 @@ import data from '../data';
 
 const posToString = pos => (pos ? data[pos].name : 'NONE');
 
+const isoDate = date =>
+  new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .replace(/\.\d{3}Z/, '')
+    .replace('T', ' ');
+
 export class Status extends Component {
   state = {
     date: '',
@@ -12,10 +18,7 @@ export class Status extends Component {
     this.intervalId = setInterval(
       () =>
         this.setState({
-          date: new Date()
-            .toISOString()
-            .replace(/\.\d{3}Z/, '')
-            .replace('T', ' '),
+          date: isoDate(new Date()),
         }),
       1000
     );
