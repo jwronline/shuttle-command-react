@@ -8,7 +8,6 @@ export default {
   help: 'default help text for commander',
   OPS: {
     '008': {
-      // TODO: find out which level this should have
       getLogs: () => [
         'OMS ignition 1',
         <>
