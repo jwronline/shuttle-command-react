@@ -1,5 +1,5 @@
 export default {
-  name: 'Welcome SSO',
+  logs: 'Welcome SSO',
   OPS: {
     '001': {
       ITEM: {

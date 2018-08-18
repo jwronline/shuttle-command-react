@@ -1,5 +1,5 @@
 export default {
-  name: 'Welkom ELSS',
+  logs: 'Welkom ELSS',
   OPS: {
     '001': {
       ITEM: {

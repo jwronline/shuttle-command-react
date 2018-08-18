@@ -1,5 +1,5 @@
 export default {
-  name: 'Welkom SSO',
+  logs: 'Welkom SSO',
   OPS: {
     '001': {
       ITEM: {

@@ -1,5 +1,5 @@
 export default {
-  name: 'Welkom piloot',
+  logs: 'Welkom piloot',
   OPS: {
     '001': {
       ITEM: {

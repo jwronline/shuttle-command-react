@@ -1,5 +1,5 @@
 export default {
-  name: 'Welcome FD',
+  logs: 'Welcome FD',
   OPS: {
     '001': {
       ITEM: {

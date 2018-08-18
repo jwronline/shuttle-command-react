@@ -1,5 +1,5 @@
 export default {
-  name: 'Welcome PAO',
+  logs: 'Welcome PAO',
   OPS: {
     '001': {
       ITEM: {

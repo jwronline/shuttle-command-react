@@ -9,7 +9,6 @@ export default {
   help: 'Je bent een commandant, voer een operatie in waar gevraagd',
   OPS: {
     '008': {
-      // TODO: find out which level this should have
       getLogs: () => [
         'OMS ontsteking 1',
         <>
