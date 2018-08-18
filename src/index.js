@@ -52,8 +52,7 @@ class App extends Component {
     });
 
   componentDidUpdate() {
-    this.lastLog.current &&
-      this.lastLog.current.scrollIntoView({ behavior: 'smooth' });
+    this.lastLog.current && this.lastLog.current.scrollIntoView();
   }
 
   render() {
