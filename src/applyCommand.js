@@ -24,6 +24,32 @@ export const getLogsFromItem = ITEM => {
   return logs;
 };
 
+const initPosition = ({ POS, language }) => {
+  try {
+    let { logs, getLogs } = data[POS][language] || {};
+
+    return {
+      newLogs: getLogsFromItem({ logs, getLogs }),
+    };
+  } catch (e) {}
+  return {
+    newLogs: ['invalid position'],
+  };
+};
+
+const initOperation = ({ POS, OPS, language }) => {
+  try {
+    let { logs, getLogs } = data[POS][language].OPS[OPS] || {};
+
+    return {
+      newLogs: getLogsFromItem({ logs, getLogs }),
+    };
+  } catch (e) {}
+  return {
+    newLogs: ['invalid operation'],
+  };
+};
+
 const execute = ({ POS, OPS, ITEM, language }) => {
   try {
     let { logs, getLogs, endsOPS } =
@@ -60,10 +86,17 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
 
   // set position
   if (!POS && type === 'POS') {
-    return {
-      ...defaultState,
-      POS: number,
-    };
+    if (data[number] && data[number][language]) {
+      const { newLogs } = initPosition({
+        POS: number,
+        language,
+      });
+      return {
+        ...defaultState,
+        logs: [...logs, ...newLogs],
+        POS: number,
+      };
+    }
   }
 
   // reset
@@ -76,8 +109,10 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
 
   // not in an operation yet
   if (POS && !OPS && type === 'OPS') {
+    const { newLogs } = initOperation({ POS, OPS, language });
     return {
       OPS: number,
+      logs: [...logs, ...newLogs],
       command: '',
     };
   }
