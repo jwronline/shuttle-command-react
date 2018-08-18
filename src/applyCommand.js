@@ -1,7 +1,7 @@
 import data from './data';
 
 const getHelp = ({ POS, OPS, language }) => {
-  const fallback = 'This is the fallback help text';
+  const fallback = data.shared[language].help_fallback;
   if (POS) {
     let dataHelpText = data[POS][language].help;
     if (OPS) {
