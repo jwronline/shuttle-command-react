@@ -1,5 +1,5 @@
-// deze imports zijn enkel nodig voor *002/001
-import React, { Fragment } from 'react';
+// deze imports zijn enkel nodig voor commands met React
+import React from 'react';
 import { Red } from '../../components/colors';
 
 export default {
@@ -29,9 +29,9 @@ export default {
       ITEM: {
         '001': {
           getLogs: () => (
-            <Fragment>
+            <>
               Hoi hoi ik ben <Red>rood</Red>
-            </Fragment>
+            </>
           ),
           endsOPS: true,
         },
