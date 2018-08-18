@@ -3,8 +3,10 @@ import data from '../data';
 
 const posToString = pos => (pos ? data[pos].name : 'NONE');
 
+const HOUR_IN_MS = 60 * 1000;
+
 const isoDate = date =>
-  new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+  new Date(date.getTime() - date.getTimezoneOffset() * HOUR_IN_MS)
     .toISOString()
     .replace(/\.\d{3}Z/, '')
     .replace('T', ' ');
