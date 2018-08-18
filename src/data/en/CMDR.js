@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Red } from '../../components/colors';
 
 export default {
-  init: 'Welcome to the commander position',
+  logs: 'Welcome to the commander position',
   help: 'default help text for commander',
   OPS: {
     '001': {

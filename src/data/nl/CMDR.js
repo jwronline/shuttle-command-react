@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Red } from '../../components/colors';
 
 export default {
-  init: 'Welkom commandant',
+  logs: 'Welkom commandant',
   help: 'Je bent een commandant, voer een operatie in waar gevraagd',
   OPS: {
     '001': {

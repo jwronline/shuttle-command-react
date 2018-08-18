@@ -8,6 +8,10 @@ it('has the correct shape', () => {
 describe('has all data', () => {
   const languages = ['en', 'nl'];
   Object.entries(data).forEach(([key, value]) => {
+    it(`has name if not shared (${key})`, () => {
+      if (key === 'shared') return;
+      expect(Object.keys(value)).toContain('name');
+    });
     it(`has all languages for "${key}"`, () => {
       expect(Object.keys(value)).toEqual(expect.arrayContaining(languages));
     });
@@ -15,6 +19,9 @@ describe('has all data', () => {
       languages.forEach(lang => {
         describe(`language: ${lang}`, () => {
           const obj = value[lang];
+          it('has logs on init POS', () => {
+            expect(getLogsFromItem(obj)).toEqual(expect.any(Array));
+          });
           it('contains OPS', () => {
             expect(Object.keys(obj)).toEqual(expect.arrayContaining(['OPS']));
           });
@@ -22,6 +29,9 @@ describe('has all data', () => {
             describe(`POS${key} OPS${operation}`, () => {
               it(`has a valid number as OPS number`, () => {
                 expect(operation).toMatch(/\d{3}/g);
+              });
+              it('has logs on init OPS', () => {
+                expect(getLogsFromItem(OPS)).toEqual(expect.any(Array));
               });
               it(`has ITEM for OPS`, () => {
                 expect(Object.keys(OPS)).toEqual(
