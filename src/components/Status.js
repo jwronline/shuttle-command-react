@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import data from '../data';
 
+const posToString = pos => (pos ? data[pos].name : 'NONE');
+
 export class Status extends Component {
   state = {
     date: '',
@@ -36,7 +38,7 @@ export class Status extends Component {
           justifyContent: 'space-between',
         }}
       >
-        POS: {POS || 'NONE'} | OPS: {OPS || 'NONE'} | {DATE}: {date}
+        POS: {posToString(POS)} | OPS: {OPS || 'NONE'} | {DATE}: {date}
         <select onChange={e => onChangeLanguage(e.target.value)}>
           <option value="en">EN</option>
           <option value="nl">NL</option>

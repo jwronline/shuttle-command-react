@@ -5,6 +5,7 @@ import nlShared from './nl/shared.js';
 
 export default {
   '001': {
+    name: 'CMDR',
     nl: nlCMDR,
     en: enCMDR,
   },
