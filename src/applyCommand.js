@@ -103,13 +103,12 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
   if (OPS === '999' && type === 'ITEM' && number === '999') {
     return {
       ...defaultState,
-      POS: undefined,
     };
   }
 
   // not in an operation yet
   if (POS && !OPS && type === 'OPS') {
-    const { newLogs } = initOperation({ POS, OPS, language });
+    const { newLogs } = initOperation({ POS, OPS: number, language });
     return {
       OPS: number,
       logs: [...logs, ...newLogs],
