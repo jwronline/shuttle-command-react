@@ -38,6 +38,7 @@ input {
 }
 pre {
   font: inherit;
+  margin: 1em;
 }
 pre div {
   margin-bottom: 0.2em;
