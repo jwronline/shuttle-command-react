@@ -2,6 +2,7 @@
   font: inherit;
   flex: 1;
   margin: 1em;
+  overflow: scroll;
 }
 .Log-line {
   margin-bottom: 0.2em;

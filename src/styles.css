@@ -23,11 +23,6 @@ main {
   flex-direction: column;
 }
 
-main pre {
-  flex-grow: 1;
-  overflow: scroll;
-}
-
 select {
   appearance: none;
   background: inherit;
