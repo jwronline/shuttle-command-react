@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import data from '../data';
 import { isoDate } from '../utils';
+import './Status.css';
 
 const posToString = pos => (pos ? data[pos].name : 'NONE');
 
@@ -28,14 +29,7 @@ export class Status extends Component {
     const { DATE } = data.shared[language];
     const { date } = this.state;
     return (
-      <div
-        style={{
-          borderBottom: '.2em solid white',
-          paddingBottom: '.2em',
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="Status">
         POS: {posToString(POS)} | OPS: {OPS || 'NONE'} | {DATE}: {date}
         <select onChange={e => onChangeLanguage(e.target.value)}>
           <option value="en">EN</option>

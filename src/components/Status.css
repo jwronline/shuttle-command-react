@@ -1,0 +1,6 @@
+.Status {
+  border-bottom: 0.2em solid white;
+  padding-bottom: 0.2em;
+  display: flex;
+  justify-content: space-between;
+}
