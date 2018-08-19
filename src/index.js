@@ -3,19 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 import { Status } from './components/Status';
 import { Log } from './components/Log';
+import { Input } from './components/Input';
 import { defaultState, applyCommand } from './applyCommand';
-
-const turnIntoCommand = input =>
-  input
-    .replace('+', 'HELP')
-    .replace('-', 'POS')
-    .replace('/', 'ITEM')
-    .replace('*', 'OPS')
-    .toUpperCase();
-
-const help = ['[+]', 'HELP'].join('|');
-const modes = ['-', 'POS', '[/]', 'ITEM', '[*]', 'OPS'].join('|');
-const inputPattern = `^(${help})|((${modes})\\d{3})$`;
 
 class App extends Component {
   state = {
@@ -24,25 +13,10 @@ class App extends Component {
     language: 'en',
   };
 
-  onInput = e => {
-    const input = e.target;
-
-    if (input.validity.patternMismatch) {
-      input.setCustomValidity(
-        'Expected "OPS", "POS", "ITEM" or "HELP" followed by three numbers'
-      );
-    } else {
-      input.setCustomValidity('');
-    }
-
-    this.setState({
-      command: turnIntoCommand(input.value),
-    });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    this.setState(applyCommand);
+  onCommand = command => {
+    this.setState(({ logs, POS, OPS, language }) => ({
+      ...applyCommand({ command, logs, POS, OPS, language }),
+    }));
   };
 
   changeLanguage = language =>
@@ -51,7 +25,7 @@ class App extends Component {
     });
 
   render() {
-    const { language, command, logs, POS, OPS } = this.state;
+    const { language, logs, POS, OPS } = this.state;
 
     return (
       <main>
@@ -67,15 +41,7 @@ class App extends Component {
             ...logs,
           ]}
         />
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            pattern={inputPattern}
-            value={command}
-            onChange={this.onInput}
-            required
-          />
-        </form>
+        <Input onCommand={this.onCommand} />
       </main>
     );
   }

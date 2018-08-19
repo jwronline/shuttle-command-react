@@ -67,7 +67,6 @@ const execute = ({ POS, OPS, ITEM, language }) => {
 };
 
 export const defaultState = {
-  command: '',
   POS: undefined,
   OPS: undefined,
 };
@@ -76,7 +75,6 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
   // help
   if (command === 'HELP') {
     return {
-      command: '',
       logs: [...logs, ...getHelp({ POS, OPS, language })],
     };
   }
@@ -112,7 +110,6 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
     return {
       OPS: number,
       logs: [...logs, ...newLogs],
-      command: '',
     };
   }
 
@@ -120,7 +117,6 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
   if (OPS && type === 'ITEM') {
     const { newOPS, newLogs } = execute({ POS, OPS, ITEM: number, language });
     return {
-      command: '',
       logs: [...logs, ...newLogs],
       OPS: newOPS,
     };
@@ -128,6 +124,5 @@ export function applyCommand({ command, logs, POS, OPS, language }) {
 
   return {
     logs: [...logs, data.shared[language].incorrect_command],
-    command: '',
   };
 }

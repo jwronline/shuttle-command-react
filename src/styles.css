@@ -27,12 +27,3 @@ main pre {
   flex-grow: 1;
   overflow: scroll;
 }
-
-input {
-  font: inherit;
-  width: 100%;
-  background: transparent;
-  border: 0.2em solid white;
-  padding: 0.5em;
-  color: inherit;
-}
