@@ -33,12 +33,7 @@ class App extends Component {
           onChangeLanguage={this.changeLanguage}
           language={language}
         />
-        <Log
-          logs={[
-            ...Array.from({ length: 100 }, (_, i) => `this is log ${i}`),
-            ...logs,
-          ]}
-        />
+        <Log logs={logs} />
         <Input onCommand={this.onCommand} />
       </main>
     );
