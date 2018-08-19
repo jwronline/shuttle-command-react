@@ -1,7 +1,8 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 import { Status } from './components/Status';
+import { Log } from './components/Log';
 import { defaultState, applyCommand } from './applyCommand';
 
 const turnIntoCommand = input =>
@@ -22,8 +23,6 @@ class App extends Component {
     logs: [],
     language: 'en',
   };
-
-  lastLog = createRef();
 
   onInput = e => {
     const input = e.target;
@@ -51,10 +50,6 @@ class App extends Component {
       language,
     });
 
-  componentDidUpdate() {
-    this.lastLog.current && this.lastLog.current.scrollIntoView();
-  }
-
   render() {
     const { language, command, logs, POS, OPS } = this.state;
 
@@ -66,18 +61,12 @@ class App extends Component {
           onChangeLanguage={this.changeLanguage}
           language={language}
         />
-        <pre>
-          {logs.map(
-            (log, i) =>
-              i === logs.length - 1 ? (
-                <div key={i} ref={this.lastLog}>
-                  {log}
-                </div>
-              ) : (
-                <div key={i}>{log}</div>
-              )
-          )}
-        </pre>
+        <Log
+          logs={[
+            ...Array.from({ length: 100 }, (_, i) => `this is log ${i}`),
+            ...logs,
+          ]}
+        />
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
