@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 export class Countdown extends Component {
   state = {
@@ -28,6 +27,6 @@ export class Countdown extends Component {
   render() {
     const { countdown } = this.state;
     const { children = null } = this.props;
-    return <>{countdown > 0 ? countdown : children}</>;
+    return countdown > 0 ? countdown : children;
   }
 }
