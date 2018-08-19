@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import { Status } from './components/Status';
-import { Log } from './components/Log';
-import { Input } from './components/Input';
+import { Status, Log, Input } from './components';
 import { defaultState, applyCommand } from './applyCommand';
 
 class App extends Component {

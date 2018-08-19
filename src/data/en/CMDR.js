@@ -1,6 +1,5 @@
 import React from 'react';
-import { Red, Green } from '../../components/colors';
-import { Countdown } from '../../components/Countdown';
+import { Red, Green, Countdown } from '../../components';
 import { random } from '../../utils';
 
 export default {
