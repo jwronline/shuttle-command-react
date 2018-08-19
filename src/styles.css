@@ -27,3 +27,12 @@ main pre {
   flex-grow: 1;
   overflow: scroll;
 }
+
+select {
+  appearance: none;
+  background: inherit;
+  color: inherit;
+  font: inherit;
+  padding: 0 0.2em;
+  border-radius: 0;
+}
